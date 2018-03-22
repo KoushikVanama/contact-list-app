@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html ng-app="contactsApp">
+<head>
+	<title>Contact List App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="container">
+	<h1>Contact List Apps</h1>
+
+	<table class="table" ng-controller="appCtrl">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Contact No</th>
+				<th>Action</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" name="Name" class="form-control" ng-model="list.name"></td>
+				<td><input type="text" name="Email" class="form-control" ng-model="list.email"></td>
+				<td><input type="text" name="Phone" class="form-control" ng-model="list.phone"></td>
+				<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+				<td><button class="btn btn-info" ng-click="update()">update</button></td>
+			</tr>
+			<tr ng-repeat="list in conList">
+				<td>{{list.name}}</td>
+				<td>{{list.email}}</td>
+				<td>{{list.phone}}</td>
+				<td><button class="btn btn-danger" ng-click="remove(list._id)">Remove</button></td>
+				<td><button class="btn btn-warning" ng-click="edit(list._id)">Edit</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="controller/controller.js"></script>
+</body>
+</html>
